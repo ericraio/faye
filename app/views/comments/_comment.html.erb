@@ -1,0 +1,12 @@
+<tr>
+  <td>
+    <%= raw comment.user.facebook_avatar %>
+  </td>
+  <td>
+    <span><%= comment.comment_body %></span>
+    <div>
+      <%= link_to comment.user.name, user_path(comment.user.id) %>
+      <%= comment.created_at %>
+    </div>
+  </td>
+</tr>

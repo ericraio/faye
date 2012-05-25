@@ -1,0 +1,36 @@
+<%= search_form anime_path(params[:id]), placeholder: 'Filter Episodes' %>
+<%= title(@anime.title) %>
+
+<div class="anime-description">
+  <span class="span5">
+    <h1><%= @anime.title.titleize %></h1>
+    <%= image_tag @anime.image_url, :style => 'border:1px;margin-bottom:25px;margin-top:25px;' %>
+    <p><b>Anime Summary:</b>  <%= @anime.description %></p>
+  </span>
+  <span class="span6">
+    <%= paginate @episodes %>
+  </span>
+</div>
+
+<div class="span6">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= sort_anime %><%= sort_arrow %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @episodes.each do |episode| %>
+        <tr>
+          <% if episode.episode_number.nil? %>
+            <td><%= link_to "#{episode.title.titleize}", episode_path(episode) %></td>
+          <% else %>
+            <td><%= link_to "#{@anime.title.titleize} Ep. #{episode.episode_number}", episode_path(episode) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @episodes %>
+</div>
+

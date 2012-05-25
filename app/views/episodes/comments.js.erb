@@ -1,0 +1,2 @@
+$('.table').prepend("<tr><td><%= j @comment.user.facebook_avatar %></td><td><span><%= j @comment.comment_body %></span><div><%= j(link_to @comment.user.name, user_path(@comment.user.id)) %><%= @comment.created_at %></div></td></tr>");
+

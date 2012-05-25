@@ -1,0 +1,23 @@
+<%= form_for @category do |f| %>
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>New Category</h3>
+  </div>
+  <div class="modal-body">
+    <% if @category.errors.any? %>
+      <% flash.now[:error] = @category.errors.full_messages.join(', and ') %>
+    <% end %>
+    <%= f.text_field :title, :size => 75, :placeholder => 'Title' %>
+
+
+    <%= f.label :position %>
+    <%= f.text_field :position %>
+
+    <%= f.label :state %>
+    <%= f.check_box :state %><br>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit "Create Forum Category", :class => "btn-warning btn" %>
+    <a class="btn" data-dismiss="modal">Close</a>
+  </div>
+<% end %>

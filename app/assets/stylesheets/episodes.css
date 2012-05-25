@@ -1,0 +1,74 @@
+embed {
+  width: 500px !important;
+  height:400px !important;
+}
+.episode-comment-textfield {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  float:right;
+  margin-right:200px;
+  margin-bottom:15px;
+  width: 507px; height: 45px;
+  background: none repeat scroll 0 0 #F6F6F6;
+  border-color: #A4A4A4 #B9B9B9 #B9B9B9;
+  border-radius: 3px 3px 3px 3px;
+  border-right: 1px solid #B9B9B9;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 #FFFFFF, 0 1px 1px rgba(0, 0, 0, 0.17) inset;
+  color: #666666;
+  font-size: 13px;
+  padding: 7px 10px;
+}
+
+.comment-btn {
+  display:none;
+}
+
+.episode-modal-text {
+  width: 100% !important;
+  height: 75px;
+}
+.btn-report-episode {
+  width:200px;
+  float:right;
+}
+.episode-title a {
+  margin-bottom:10px;
+  color: #333;
+  text-decoration:none;
+}
+.episode-title a:hover {
+  text-decoration:none;
+}
+.embed-video {
+  margin-left:180px;
+}
+.video-background {
+  width:100%;
+  margin-left:0px;
+  background-color:black;
+  margin-bottom: 20px;
+}
+.next-episode {
+  float:right;
+  margin-right:5px;
+}
+.previous-episode {
+  float:left;
+  margin-left:5px;
+}
+.pagination-container {
+  float:left;
+  margin-top:5px;
+  background-color:black;
+  width:100%;
+}
+.avatar {
+  height: 60px;
+  margin-left: 70px;
+  margin-top: 1px;
+}

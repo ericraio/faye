@@ -1,0 +1,19 @@
+<h2>Sign in</h2>
+
+<div class="span4 well sign-up-form" style="float:right;">
+  <%= link_to image_tag('login-fb.jpg', :class => 'login-fb'), user_omniauth_authorize_path(:facebook) %>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div><%= f.text_field :email, :placeholder => 'Email' %></div>
+    <div><%= f.text_field :password, :class => 'password', :placeholder => 'Password' %></div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div><%= f.check_box :remember_me %> Remember me </div>
+    <% end -%>
+
+    <div class="sign-in-btn"><%= f.submit "Sign in", :id => 'submit', :class => 'btn btn-info' %></div>
+  <% end %>
+  
+  <%= render "links" %>
+</div>
+
+

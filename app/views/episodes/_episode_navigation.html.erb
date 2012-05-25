@@ -1,0 +1,21 @@
+<span data-episode-id="<%= @episode.id %>" class="btn btn-warning btn-report-episode">
+  <span class="icon-report icon-warning-sign"></span>
+  Fix Broken Video
+</span>
+
+
+<ul class="nav nav-tabs tabs" data-tabs="tabs" ></ul>
+
+<div class="pagination-container">
+  <% unless @previous_episode.nil? %>
+    <div class="previous-episode">
+      <%= link_to 'Previous Episode', episode_path(@previous_episode) %>
+    </div>
+  <% end %>
+
+  <% unless @next_episode.nil? %>
+    <div class="next-episode"> 
+      <%= link_to 'Next Episode', episode_path(@next_episode) %>
+    </div>
+  <% end %>
+</div>

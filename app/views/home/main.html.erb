@@ -1,0 +1,27 @@
+<div class='well span6 main-headline'>
+  <h2>Watch all your favorite anime</h2>
+  <h3 style="margin-bottom: 15px;">It is free and always will be.</h3>
+  <h3 style="margin-bottom: 35px;"><%= link_to 'Browse Anime', animes_path, :class => "btn btn-primary btn-large" %></h3>
+  <div id="myCarousel" class="carousel">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <% @featured_anime.each do |anime| %>
+        <div class="item"><%= link_to image_tag(anime.image_url, :class => 'carousel-images'), anime_path(anime) %></div>
+      <% end %>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  </div>
+</div>
+<div class="well sidebar-box" style="float:right;">
+  <div style="margin-bottom:15px;text-align:center;">
+    <h3 class="sign-up-headline">Sign up for Faye today.</h3>
+    <%= link_to image_tag('login-fb.jpg', :class => 'login-fb'), user_omniauth_authorize_path(:facebook) %>
+  </div>
+  <% if false %>
+    <div>
+      <fb:like-box href="www.fayeanime.com" width="292" show_faces="true" stream="true" header="true"></fb:like-box>
+    </div>
+  <% end %>
+</div>

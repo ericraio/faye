@@ -1,0 +1,37 @@
+<% if @search.present? %>
+  <h1>Search Results for "<%= params[:search] %>"</h1>
+
+  <table class="table">
+    <% @search.each do |result| %>
+      <tr>
+        <% if result.is_a? Episode %>
+          <% if result.episode_number.nil? %>
+            <td><%= link_to result.title.titleize, episode_path(result) %></td>
+          <% else %>
+            <td><%= link_to "#{result.anime.title} Ep. #{result.episode_number}", episode_path(result) %></td>
+          <% end %>
+        <% else %>
+          <% if result.is_a? Array %>
+            <% result.each do |episode| %>
+              <td>
+                <div>
+                  <h3><%= link_to episode.title.titleize, anime_path(episode) %></h3> <br />
+                  <%= episode.description %>
+                </div>
+              </td>
+            <% end %>
+          <% else %>
+            <td>
+              <div>
+                <h3><%= link_to result.title.titleize, anime_path(result) %></h3> <br />
+                <%= result.description %>
+              </div>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <div><h3>Sorry no search results found</h3></div>
+<% end %>

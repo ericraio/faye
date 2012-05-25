@@ -1,0 +1,10 @@
+production:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: <%= mysql_database %>
+  pool: 5
+  username: <%= mysql_user %>
+  password: <%= mysql_password %>
+  host: <%= mysql_host %>
+  socket: /var/run/mysqld/mysqld.sock

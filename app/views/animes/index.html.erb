@@ -1,0 +1,23 @@
+<h1>Anime</h1>
+
+
+<span class="anime-nav ">
+  <%= search_form animes_path, class: 'anime-filter', placeholder: 'Filter Anime' %>
+  <ul class="pagination pagination-centered">
+    <%= alpha_pag params[:filter] %>
+  </ul>
+</span>
+
+<ul class="thumbnails">
+  <% @animes.each do |anime| %>
+    <li class="span3">
+      <div class="thumbnail", rel="popover", data-content="<%= truncate(anime.description, length: 300) %>", data-original-title="<%=anime.title%>">
+        <div class="caption">
+          <h5><%= link_to anime.title, anime_path(anime, :sort => 'desc') %>
+        </div>
+        <%=link_to image_tag(anime.image_url), anime_path(anime, :sort => 'desc') %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+

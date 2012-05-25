@@ -1,0 +1,61 @@
+<h3 class="dashboard-browse-btn"><%= link_to 'Browse Anime', animes_path, :class => "btn btn-primary btn-large" %></h3>
+<h1>Featured Anime</h1>
+<ul class="thumbnails">
+  <% @featured_anime.each do |anime| %>
+    <li class="span3">
+    <div class="thumbnail", rel="popover", data-content="<%= truncate(anime.description, length: 300) %>", data-original-title="<%=anime.title%>">
+      <div class="caption">
+        <h5><%= link_to anime.title, anime_path(anime, :sort => 'desc') %>
+      </div>
+      <%=link_to image_tag(anime.image_url), anime_path(anime, :sort => 'desc') %>
+    </div>
+    </li>
+  <% end %>
+</ul>
+
+<div class="dashboard-anime-column-first">
+  <h3><u>Most Popular</u></h3>
+<ul>
+  <% @popular_anime.each do |episode| %>
+    <li>
+    <% if episode.episode_number.nil? %>
+      <h5><%= link_to episode.title.titleize, anime_path(episode) %></h2>
+    <% else %>
+      <h5><%= link_to "#{episode.anime.title.titleize} Ep. #{episode.episode_number}", episode_path(episode) %></h2>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+</div>
+
+
+<div class="dashboard-anime-column">
+  <h3><u>Recently Added</u></h3>
+<ul>
+  <% @new_anime.each do |episode| %>
+    <li>
+    <% if episode.episode_number.nil? %>
+      <h5><%= link_to episode.title.titleize, anime_path(episode) %></h2>
+    <% else %>
+      <h5><%= link_to "#{episode.anime.title.titleize} Ep. #{episode.episode_number}", episode_path(episode) %></h2>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+</div>
+
+
+<div class="dashboard-anime-column">
+  <h3><u>Fixed</u></h3>
+<ul>
+  <% @fixed_anime.each do |episode| %>
+    <li>
+    <% if episode.episode_number.nil? %>
+      <h5><%= link_to episode.title.titleize, anime_path(episode) %></h2>
+    <% else %>
+      <h5><%= link_to "#{episode.anime.title.titleize} Ep. #{episode.episode_number}", episode_path(episode) %></h2>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+  <head>
+    <title>Faye Anime - <%= yield :title || ':3' %></title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <%= render 'shared/facebook_js' %>
+    <%= render 'shared/navigation' %>
+
+
+    <div class="container-fluid span12">
+      <div class="well main-body">
+        <div class="row-fluid">
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+              <a class="close" data-dismiss="alert">×</a>
+              <%= msg %>
+            </div>
+          <% end %>
+          <div data-pjax-container>
+            <%= yield %>
+          </div>
+        </div><!--/row-->
+      </div><!--/well-->
+      <%= render 'shared/footer' %>
+    </div><!--/.fluid-container-->
+
+    <%= javascript_include_tag "application" %>
+    <%= render :partial => 'shared/main_body_js' %>
+
+  </body>
+</html>
+

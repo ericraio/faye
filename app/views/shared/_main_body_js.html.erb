@@ -1,0 +1,12 @@
+<script>
+  <% if !signed_in? %>
+    $(document).on('ajaxComplete ready', function(){
+      if (document.location.pathname === "/") {
+        $('.main-body').removeClass('well');
+      } 
+      else {
+        $('.main-body').addClass('well');
+      }
+    });
+  <% end %>
+</script>

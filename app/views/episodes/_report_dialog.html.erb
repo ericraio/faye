@@ -1,0 +1,23 @@
+<div id="report-episode-modal" class="modal hide fade" style="display: none; ">
+  <span class="report-episode-id" style="display:none;"><%= @episode.id %></span>
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Reporting <%= @episode.title.titleize %></h3>
+  </div>
+  <div class="modal-body">
+    <div class="alert alert-error" style="display:none;">
+      Please fill in a description.
+    </div>
+    <p>
+      Thank you for reporting this episode. We will be sure to have it fixed as soon as possible.
+    </p>
+    <form class="well">
+      <label>Description:</label>
+      <input type="text" class="episode-modal-text span3" placeholder="What went wrong?">
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <span class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

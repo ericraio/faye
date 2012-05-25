@@ -1,0 +1,20 @@
+<%= title(@episode.title) %>
+
+<% if @episode.episode_number.nil? %>
+  <h2 class="episode-title"><%= link_to @episode.title.titleize, anime_path(@episode) %></h2>
+<% else %>
+  <h2 class="episode-title"><%= link_to "#{@episode.anime.title.titleize} Ep. #{@episode.episode_number}", anime_path(@episode.anime_id) %></h2>
+<% end %>
+
+<%= render :partial => 'episode_navigation' %>
+
+<span class='span6 video-background'>
+  <div class="tab-content">
+    <%=  @episode.embed_url.html_safe %>
+  </div>
+</span>
+
+<span class="comment-section">
+  <fb:like send="true" href="<%= request.url %>" width="450" show_faces="true"></fb:like>
+  <fb:comments href="<%= episode_url(@episode) %>" num_posts="2" width="900"></fb:comments>
+</span>
